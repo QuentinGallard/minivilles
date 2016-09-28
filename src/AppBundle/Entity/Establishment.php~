@@ -1,0 +1,403 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Establishment
+ *
+ * @ORM\Table(name="establishment")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\EstablishmentRepository")
+ */
+class Establishment
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="picture", type="string", length=255)
+     */
+    private $picture;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="minDiceValue", type="integer")
+     */
+    private $minDiceValue;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="maxDiceValue", type="integer")
+     */
+    private $maxDiceValue;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="cost", type="integer")
+     */
+    private $cost;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="color", type="integer")
+     */
+    private $color;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="type", type="string", length=255)
+     */
+    private $type;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="receiveFrom", type="integer")
+     */
+    private $receiveFrom;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="receiveForEachEstablishment", type="integer", nullable=true)
+     */
+    private $receiveForEachEstablishment;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="receiveForEachType", type="integer")
+     */
+    private $receiveForEachType;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="receiveForEachOwner", type="integer")
+     */
+    private $receiveForEachOwner;
+
+    /**
+     * @var Extension
+     *
+     * @ORM\ManyToOne(targetEntity="Extension", inversedBy="establishments")
+     * @ORM\JoinColumn(name="extensionId", referencedColumnName="id")
+     */
+    private $extension;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Establishment
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set minDiceValue
+     *
+     * @param integer $minDiceValue
+     *
+     * @return Establishment
+     */
+    public function setMinDiceValue($minDiceValue)
+    {
+        $this->minDiceValue = $minDiceValue;
+
+        return $this;
+    }
+
+    /**
+     * Get minDiceValue
+     *
+     * @return int
+     */
+    public function getMinDiceValue()
+    {
+        return $this->minDiceValue;
+    }
+
+    /**
+     * Set maxDiceValue
+     *
+     * @param integer $maxDiceValue
+     *
+     * @return Establishment
+     */
+    public function setMaxDiceValue($maxDiceValue)
+    {
+        $this->maxDiceValue = $maxDiceValue;
+
+        return $this;
+    }
+
+    /**
+     * Get maxDiceValue
+     *
+     * @return int
+     */
+    public function getMaxDiceValue()
+    {
+        return $this->maxDiceValue;
+    }
+
+    /**
+     * Set cost
+     *
+     * @param integer $cost
+     *
+     * @return Establishment
+     */
+    public function setCost($cost)
+    {
+        $this->cost = $cost;
+
+        return $this;
+    }
+
+    /**
+     * Get cost
+     *
+     * @return int
+     */
+    public function getCost()
+    {
+        return $this->cost;
+    }
+
+    /**
+     * Set color
+     *
+     * @param integer $color
+     *
+     * @return Establishment
+     */
+    public function setColor($color)
+    {
+        $this->color = $color;
+
+        return $this;
+    }
+
+    /**
+     * Get color
+     *
+     * @return int
+     */
+    public function getColor()
+    {
+        return $this->color;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Establishment
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set picture
+     *
+     * @param string $picture
+     *
+     * @return Establishment
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
+     * Set receiveFrom
+     *
+     * @param integer $receiveFrom
+     *
+     * @return Establishment
+     */
+    public function setReceiveFrom($receiveFrom)
+    {
+        $this->receiveFrom = $receiveFrom;
+
+        return $this;
+    }
+
+    /**
+     * Get receiveFrom
+     *
+     * @return int
+     */
+    public function getReceiveFrom()
+    {
+        return $this->receiveFrom;
+    }
+
+    /**
+     * Set receiveForEachEstablishment
+     *
+     * @param integer $receiveForEachEstablishment
+     *
+     * @return Establishment
+     */
+    public function setreceiveForEachEstablishment($receiveForEachEstablishment)
+    {
+        $this->receiveForEachEstablishment = $receiveForEachEstablishment;
+
+        return $this;
+    }
+
+    /**
+     * Get receiveForEachEstablishment
+     *
+     * @return int
+     */
+    public function getreceiveForEachEstablishment()
+    {
+        return $this->receiveForEachEstablishment;
+    }
+
+    /**
+     * Set receiveForEachType
+     *
+     * @param integer $receiveForEachType
+     *
+     * @return Establishment
+     */
+    public function setReceiveForEachType($receiveForEachType)
+    {
+        $this->receiveForEachType = $receiveForEachType;
+
+        return $this;
+    }
+
+    /**
+     * Get receiveForEachType
+     *
+     * @return int
+     */
+    public function getReceiveForEachType()
+    {
+        return $this->receiveForEachType;
+    }
+
+    /**
+     * Set receiveForEachOwner
+     *
+     * @param integer $receiveForEachOwner
+     *
+     * @return Establishment
+     */
+    public function setReceiveForEachOwner($receiveForEachOwner)
+    {
+        $this->receiveForEachOwner = $receiveForEachOwner;
+
+        return $this;
+    }
+
+    /**
+     * Get receiveForEachOwner
+     *
+     * @return int
+     */
+    public function getReceiveForEachOwner()
+    {
+        return $this->receiveForEachOwner;
+    }
+
+    /**
+     * @return Extension
+     */
+    public function getExtension()
+    {
+        return $this->extension;
+    }
+
+    /**
+     * @param Extension $extension
+     */
+    public function setExtension(Extension $extension)
+    {
+        $this->extension = $extension;
+    }
+
+
+
+}
+
